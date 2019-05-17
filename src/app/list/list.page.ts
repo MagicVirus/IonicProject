@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Hike} from '../entities/hike';
 
 @Component({
   selector: 'app-list',
@@ -7,28 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListPage implements OnInit {
   private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
+  private hikings = [
+    new Hike('Paris-Dakar', '2019-05-17', 26),
+    new Hike('Clermont-LePuy', '2019-06-23', 31),
+    new Hike('Bankok', '2019-09-15', 22),
+    new Hike('Lyon', '2019-05-27', 58),
+    new Hike('New-York', '2019-08-17', 278),
+    new Hike('Bois de Boulogne', '2019-02-17', 963),
   ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 100; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
+    public items: Array<{ name: string; date: Date; nbPeople: number }> = [];
+    constructor() {
+        for (let i = 1; i < this.hikings.length; i++) {
+            this.items.push({
+                name: i.name,
+                date: i.date,
+                nbPeople: i.nbPeople
+            });
+        }
     }
-  }
 
   ngOnInit() {
   }
