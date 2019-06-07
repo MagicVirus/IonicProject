@@ -14,7 +14,8 @@ import { ListPage } from './list.page';
     RouterModule.forChild([
       {
         path: '',
-        component: ListPage
+        component: ListPage,
+          issou: console.log('list module')
       }
     ])
   ],
