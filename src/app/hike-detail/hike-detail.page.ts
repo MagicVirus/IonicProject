@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NavParams} from '@ionic/angular';
+import {ListPage} from '../list.page';
+
 
 @Component({
   selector: 'app-hike-detail',
@@ -8,8 +10,10 @@ import {NavParams} from '@ionic/angular';
 })
 export class HikeDetailPage implements OnInit {
 
-  constructor(public navParams: NavParams) {
-    this.navParams.get('hikingParams');
+  constructor(private hikings: ListPage) {
+    // this.navParams.get('hikingParams');
+    const list = new ListPage();
+    console.log(this.list);
   }
 
   ngOnInit() {

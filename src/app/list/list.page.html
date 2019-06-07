@@ -1,19 +1,9 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      Randonnées disponibles
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
+<ion-header><h1>Hikings</h1></ion-header>
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of items">
       <ion-label (click)="detail()">{{item.name}}</ion-label>
-      <ion-button [navPush]="hikeDetail" [navParams]="hikingParams">Detail de la randonne</ion-button>
+      <ion-button >Detail de la randonne</ion-button>
     </ion-item>
   </ion-list>
   <!--
