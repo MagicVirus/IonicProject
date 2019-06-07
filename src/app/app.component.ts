@@ -26,12 +26,13 @@ export class AppComponent {
             this.statusBar.styleDefault();
             this.splashScreen.hide();
 
-            this.authenticationService.authenticationState.subscribe(state => {
-                if (state) {
-                    this.router.navigate(['members', 'dashboard']);
-                } else {
-                }
-            });
+            // this.authenticationService.authenticationState.subscribe(state => {
+            //     if (state) {
+            //         this.router.navigate(['members', 'dashboard']);
+            //     } else {
+            //     }
+            // }
+            // );
 
         });
     }

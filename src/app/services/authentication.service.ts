@@ -23,11 +23,11 @@ export class AuthenticationService {
             if (res) {
                 this.authenticationState.next(true);
             }
-        })
+        });
     }
 
     login() {
-        return this.storage.set(TOKEN_KEY, 'Bearer 1234567').then(() => {
+        return this.storage.set(TOKEN_KEY, 'Bob toto').then(() => {
             this.authenticationState.next(true);
         });
     }
