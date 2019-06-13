@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Hike} from '../entities/hike';
+import {HikeDetailService} from './hike-detail.service';
 import { Map, latLng, tileLayer, Layer, marker } from 'leaflet';
 
 
@@ -9,13 +10,9 @@ import { Map, latLng, tileLayer, Layer, marker } from 'leaflet';
   styleUrls: ['./hike-detail.page.scss'],
 })
 export class HikeDetailPage implements OnInit {
-    map: Map;
-  constructor() {
-    this.hike =     new Hike(1, 'Paris-Dakar', '2019-05-17', 26),
-        console.log(this.hike);
-    //this.navParams.get('hikingParams');
-    //const list = new ListPage();
-    //console.log(this.list);
+
+  constructor(private hikingDetailService: HikeDetailService) {
+      console.log(hikingDetailService.hike.name);
   }
 
     ionViewDidEnter() {
