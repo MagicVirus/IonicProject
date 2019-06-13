@@ -11,12 +11,14 @@ import {HikeDetailService} from './hike-detail.service';
   styleUrls: ['./hike-detail.page.scss'],
 })
 export class HikeDetailPage implements OnInit {
+  hike: Hike;
 
   constructor(private hikingDetailService: HikeDetailService) {
       console.log(hikingDetailService.hike.name);
   }
 
   ngOnInit() {
+    this.hike = this.hikingDetailService.hike;
   }
 
 }

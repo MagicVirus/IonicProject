@@ -1,13 +1,23 @@
 export class Hike {
+    get image() {
+        return this._image;
+    }
+
+    set image(value) {
+        this._image = value;
+    }
     private _id;
     private _name;
     private _date;
     private _nbPeople;
-    constructor(id, name, date, nbPeople) {
+    private _image: string;
+
+    constructor(id, name, date, nbPeople, image) {
         this._id = id;
         this._name = name;
         this._date = date;
         this._nbPeople = nbPeople;
+        this._image = image;
     }
 
 
