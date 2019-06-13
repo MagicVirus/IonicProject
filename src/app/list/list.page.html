@@ -1,9 +1,9 @@
 <ion-header><h1>Hikings</h1></ion-header>
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-label (click)="detail()">{{item.name}}</ion-label>
-      <ion-button >Detail de la randonne</ion-button>
+    <ion-item *ngFor="let item of hikings">
+      <ion-label>{{item.name}}</ion-label>
+      <ion-button (click)="detail(item)">Detail de la randonne</ion-button>
     </ion-item>
   </ion-list>
   <!--
