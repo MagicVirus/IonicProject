@@ -15,7 +15,6 @@ import { ListPage } from './list.page';
       {
         path: '',
         component: ListPage,
-          issou: console.log('list module')
       }
     ])
   ],

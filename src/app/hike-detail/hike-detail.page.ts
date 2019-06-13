@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {NavParams} from '@ionic/angular';
-import {ListPage} from '../list.page';
+import {ListPage} from '../list/list.page';
+import {Hike} from '../entities/hike';
 
 
 @Component({
@@ -10,10 +11,11 @@ import {ListPage} from '../list.page';
 })
 export class HikeDetailPage implements OnInit {
 
-  constructor(private hikings: ListPage) {
-    // this.navParams.get('hikingParams');
-    const list = new ListPage();
-    console.log(this.list);
+  constructor() {
+
+    //this.navParams.get('hikingParams');
+    //const list = new ListPage();
+    //console.log(this.list);
   }
 
   ngOnInit() {
