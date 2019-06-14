@@ -23,18 +23,27 @@
           <ion-row>
             {{ hike.date}}
           </ion-row>
-          <ion-row>
+          <ion-row class="center">
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
             <span class="fa fa-star"></span>
           </ion-row>
-       </ion-grid>
+          <ion-row>
+            <i class="fas fa-map-marker-alt"></i>  {{ hike.address}}
+          </ion-row>
+          <ion-row>
+            <i class="far fa-clock"></i> {{hike.timeToAchieve}}
+          </ion-row>
+          <ion-row>
+            <i class="fas fa-hamburger"></i> {{hike.lenght}}
+          </ion-row>
+        </ion-grid>
 
 
 
-        <ion-img [src]="hike.image"></ion-img>
+        <ion-img class="center" [src]="hike.image"></ion-img>
 
       </ion-card-content>
     </ion-card>
