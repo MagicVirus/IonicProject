@@ -11,6 +11,7 @@ import { Map, latLng, tileLayer, Layer, marker } from 'leaflet';
 })
 export class HikeDetailPage implements OnInit {
   hike: Hike;
+  map: Map;
 
   constructor(private hikingDetailService: HikeDetailService) {
       console.log(hikingDetailService.hike.name);

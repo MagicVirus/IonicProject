@@ -13,7 +13,31 @@
   </div>
   <ion-grid>
   <ion-row>
-    <ion-img [src]="hike.image"></ion-img>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{ hike.name}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            {{ hike.date}}
+          </ion-row>
+          <ion-row>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </ion-row>
+       </ion-grid>
+
+
+
+        <ion-img [src]="hike.image"></ion-img>
+
+      </ion-card-content>
+    </ion-card>
   </ion-row>
   </ion-grid>
 </ion-content>

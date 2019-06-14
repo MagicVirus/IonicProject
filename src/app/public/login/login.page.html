@@ -8,5 +8,5 @@
   <ion-input [(ngModel)]="loginModel" placeholder="Login" ></ion-input>
   <ion-input type="password"  [(ngModel)]="passwordModel" placeholder="Password" ></ion-input>
 
-  <ion-button (click)="login()" expand="block">Login</ion-button>
+  <ion-button (click)="login()" (keyup.enter)="login()" expand="block">Login</ion-button>
 </ion-content>
