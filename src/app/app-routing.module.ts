@@ -3,7 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: '', redirectTo: 'list', pathMatch: 'full' },
     { path: 'list', loadChildren: './list/list.module#ListPageModule' },
     { path: 'login', loadChildren: './public/login/login.module#LoginPageModule' },
     { path: 'dashboard', loadChildren: './members/dashboard/dashboard.module#DashboardPageModule' },

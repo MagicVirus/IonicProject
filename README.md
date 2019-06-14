@@ -5,3 +5,9 @@ compteur => Interval qui rafraichit toutes les secondes avec observable ca va cr
 compteur => Timer
 
 open street map
+
+typedoc
+compodoc
+coverage
+
+difficulté rencontré et solutions apportées

@@ -22,15 +22,17 @@ export class HikeDetailPage implements OnInit {
     }
 
     leafletMap() {
-        this.map = new Map('mapId').setView([3.087025, 45.777222], 13);
+        this.map = new Map('mapId').setView([1.087025, 25.777222], 13);
 
-        tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-            attribution: 'edupala.com'
+        tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
         }).addTo(this.map);
 
-        const markPoint = marker([3.087025, 45.777222]);
-        markPoint.bindPopup('<p>Tashi Delek - Bangalore.</p>');
-        this.map.addLayer(markPoint);
+        const markPointStart = marker([3.087025, 45.777222]);
+        const markPointEnd = marker([-3.087025, -45.777222]);
+        markPointStart.bindPopup(`<p> ${ this.hike.name } </p>`);
+        markPointEnd.bindPopup(`<p> ${ this.hike.name } </p>`);
+        this.map.addLayer(markPointStart);
+        this.map.addLayer(markPointEnd);
     }
 
     ionViewWillLeave() {
