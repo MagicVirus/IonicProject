@@ -2070,7 +2070,7 @@ console-browserify@^1.1.0:
   resolved "https://registry.yarnpkg.com/console-browserify/-/console-browserify-1.1.0.tgz#f0241c45730a9fc6323b206dbf38edc741d0bb10"
   integrity sha1-8CQcRXMKn8YyOyBtvzjtx0HQuxA=
   dependencies:
-    date-now "^0.1.4"
+    duration-now "^0.1.4"
 
 console-control-strings@^1.0.0, console-control-strings@^1.1.0, console-control-strings@~1.1.0:
   version "1.1.0"
@@ -2462,12 +2462,12 @@ data-uri-to-buffer@2:
 
 date-format@^2.0.0:
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/date-format/-/date-format-2.0.0.tgz#7cf7b172f1ec564f0003b39ea302c5498fb98c8f"
+  resolved "https://registry.yarnpkg.com/duration-format/-/duration-format-2.0.0.tgz#7cf7b172f1ec564f0003b39ea302c5498fb98c8f"
   integrity sha512-M6UqVvZVgFYqZL1SfHsRGIQSz3ZL+qgbsV5Lp1Vj61LZVYuEwcMXYay7DRDtYs2HQQBK5hQtQ0fD9aEJ89V0LA==
 
 date-now@^0.1.4:
   version "0.1.4"
-  resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
+  resolved "https://registry.yarnpkg.com/duration-now/-/duration-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
   integrity sha1-6vQ5/U1ISK105cx9vvIAZyueNFs=
 
 debug@*, debug@4, debug@^4.0.0, debug@^4.1.0, debug@^4.1.1:
@@ -2982,7 +2982,7 @@ es-to-primitive@^1.2.0:
   integrity sha512-qZryBOJjV//LaxLTV6UC//WewneB3LcXOL9NP++ozKVXsIIIpm/2c13UDiD9Jp2eThsecw9m3jPqDwTyobcdbg==
   dependencies:
     is-callable "^1.1.4"
-    is-date-object "^1.0.1"
+    is-duration-object "^1.0.1"
     is-symbol "^1.0.2"
 
 es6-promise@^4.0.3:
@@ -4395,7 +4395,7 @@ is-data-descriptor@^1.0.0:
 
 is-date-object@^1.0.1:
   version "1.0.1"
-  resolved "https://registry.yarnpkg.com/is-date-object/-/is-date-object-1.0.1.tgz#9aa20eb6aeebbff77fbd33e74ca01b33581d3a16"
+  resolved "https://registry.yarnpkg.com/is-duration-object/-/is-duration-object-1.0.1.tgz#9aa20eb6aeebbff77fbd33e74ca01b33581d3a16"
   integrity sha1-mqIOtq7rv/d/vTPnTKAbM1gdOhY=
 
 is-descriptor@^0.1.0:
@@ -5429,7 +5429,7 @@ log4js@^4.0.0:
   resolved "https://registry.yarnpkg.com/log4js/-/log4js-4.2.0.tgz#659a91d9522053b1e1d0ba89adf81c2005b8a993"
   integrity sha512-1dJ2ORJcdqbzxvzKM2ceqPBh4O6bbICJpB4dvSEUoMcb14s8MqQ/54zNPqekuN5yjGtxO3GUDTvZfQOQhwdqnA==
   dependencies:
-    date-format "^2.0.0"
+    duration-format "^2.0.0"
     debug "^4.1.1"
     flatted "^2.0.0"
     rfdc "^1.1.2"
@@ -6272,7 +6272,7 @@ npm@^6.9.0:
     stringify-package "^1.0.0"
     tar "^4.4.8"
     text-table "~0.2.0"
-    tiny-relative-date "^1.3.0"
+    tiny-relative-duration "^1.3.0"
     uid-number "0.0.6"
     umask "~1.1.0"
     unique-filename "^1.1.1"
@@ -8410,7 +8410,7 @@ streamroller@^1.0.5:
   integrity sha512-iGVaMcyF5PcUY0cPbW3xFQUXnr9O4RZXNBBjhuLZgrjLO4XCLLGfx4T2sGqygSeylUjwgWRsnNbT9aV0Zb8AYw==
   dependencies:
     async "^2.6.2"
-    date-format "^2.0.0"
+    duration-format "^2.0.0"
     debug "^3.2.6"
     fs-extra "^7.0.1"
     lodash "^4.17.11"
@@ -8750,7 +8750,7 @@ timers-browserify@^2.0.4:
 
 tiny-relative-date@^1.3.0:
   version "1.3.0"
-  resolved "https://registry.yarnpkg.com/tiny-relative-date/-/tiny-relative-date-1.3.0.tgz#fa08aad501ed730f31cc043181d995c39a935e07"
+  resolved "https://registry.yarnpkg.com/tiny-relative-duration/-/tiny-relative-duration-1.3.0.tgz#fa08aad501ed730f31cc043181d995c39a935e07"
   integrity sha512-MOQHpzllWxDCHHaDno30hhLfbouoYlOI8YlMNtvKe1zXbjEVhbcEovQxvZrPvtiYW630GQDoMMarCnjfyfHA+A==
 
 tmp@0.0.30:

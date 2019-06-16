@@ -1,14 +1,53 @@
-<ion-header><h1>Hikings</h1></ion-header>
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of hikings">
-      <ion-label>{{item.name}}</ion-label>
-      <ion-button (click)="detail(item)">Detail de la randonne</ion-button>
-    </ion-item>
-  </ion-list>
-  <!--
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
-  -->
+    <ion-list>
+        <ion-list-header>
+            <ion-label>Hikings</ion-label>
+        </ion-list-header>
+        <ion-item *ngFor="let hike of hikings" (click)="detail(hike)" href="">
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="6">
+                        <ion-row justify-content-center>
+                            <ion-img class="dimensions-100pourcent" [src]="hike.image"></ion-img>
+                        </ion-row>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-row>
+                            <ion-button (click)="detail(hike)">Detail de la randonne</ion-button>
+                        </ion-row>
+
+
+                        <ion-card-header>
+                            <ion-card-title text-center>{{ hike.name}}</ion-card-title>
+
+                        </ion-card-header>
+
+                        <ion-row justify-content-center>
+                            <i class="fas fa-map-marker-alt space-after-logo"></i>
+                            <ion-label>{{ hike.address}}</ion-label>
+                        </ion-row>
+
+                        <ion-row justify-content-center>
+                            <i class="fas fa-hourglass-end space-after-logo"></i>
+                            <ion-label>{{ hike.duration}}</ion-label>
+                        </ion-row>
+
+                        <ion-row justify-content-center>
+                            <i class="fas fa-chart-line space-after-logo"></i>
+                            <ion-label>{{hike.elevation}}</ion-label>
+                        </ion-row>
+
+                        <ion-row justify-content-center>
+                            <i class="fas fa-info-circle space-after-logo"></i>
+                            <ion-label>{{hike.description}}</ion-label>
+                        </ion-row>
+
+                        <ion-row class="margin-before-button ion-justify-content-center">
+                            <ion-button fill="outline" color="dark" center>Start</ion-button>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-item>
+    </ion-list>
 </ion-content>
