@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Hike} from '../entities/hike';
 import {HikeDetailService} from './hike-detail.service';
-import { Map, latLng, tileLayer, Layer, marker } from 'leaflet';
+import { Map, tileLayer, marker, latLng } from 'leaflet';
+import 'leaflet-routing-machine';
 
 
 @Component({
@@ -12,6 +13,7 @@ import { Map, latLng, tileLayer, Layer, marker } from 'leaflet';
 export class HikeDetailPage implements OnInit {
   hike: Hike;
   map: Map;
+  L: any;
 
   constructor(private hikingDetailService: HikeDetailService) {
       console.log(hikingDetailService.hike.name);
@@ -33,6 +35,13 @@ export class HikeDetailPage implements OnInit {
         markPointEnd.bindPopup(`<p> ${ this.hike.name } </p>`);
         this.map.addLayer(markPointStart);
         this.map.addLayer(markPointEnd);
+        L.Routing.control({
+            waypoints: [
+                latLng(57.74, 11.94),
+                latLng(57.6792, 11.949)
+            ],
+            routeWhileDragging: trueg
+        }).addTo(this.map);
     }
 
     ionViewWillLeave() {
