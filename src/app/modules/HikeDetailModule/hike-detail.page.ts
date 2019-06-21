@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Hike} from '../entities/hike';
+import {Hike} from '../../entities/hike';
 import {HikeDetailService} from './hike-detail.service';
 import * as L from 'leaflet';
 import 'leaflet-routing-machine';

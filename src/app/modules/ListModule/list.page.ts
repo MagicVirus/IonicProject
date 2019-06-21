@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Hike} from '../entities/hike';
-import {HikeDetailService} from '../hike-detail/hike-detail.service';
+import {Hike} from '../../entities/hike';
+import {HikeDetailService} from '../HikeDetailModule/hike-detail.service';
 import {Router} from '@angular/router';
 
 @Component({
