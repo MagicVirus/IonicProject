@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Hike} from '../entities/hike';
 import {HikeDetailService} from './hike-detail.service';
 import { Map, tileLayer, marker, latLng } from 'leaflet';
-import 'leaflet-routing-machine';
-
+import {} from './../../../node_modules/leaflet-routing-machine/src/';
 
 @Component({
   selector: 'app-hike-detail',
@@ -13,7 +12,6 @@ import 'leaflet-routing-machine';
 export class HikeDetailPage implements OnInit {
   hike: Hike;
   map: Map;
-  L: any;
 
   constructor(private hikingDetailService: HikeDetailService) {
       console.log(hikingDetailService.hike.name);
