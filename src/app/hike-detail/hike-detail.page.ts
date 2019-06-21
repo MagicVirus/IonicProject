@@ -35,13 +35,6 @@ export class HikeDetailPage implements OnInit {
         markPointEnd.bindPopup(`<p> ${ this.hike.name } </p>`);
         this.map.addLayer(markPointStart);
         this.map.addLayer(markPointEnd);
-        L.Routing.control({
-            waypoints: [
-                latLng(57.74, 11.94),
-                latLng(57.6792, 11.949)
-            ],
-            routeWhileDragging: trueg
-        }).addTo(this.map);
     }
 
     ionViewWillLeave() {
