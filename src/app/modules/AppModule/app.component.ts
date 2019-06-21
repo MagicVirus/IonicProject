@@ -1,5 +1,5 @@
 import {Router} from '@angular/router';
-import {AuthenticationService} from './services/authentication.service';
+import {AuthenticationService} from '../../services/AuthentificationService/authentication.service';
 import {Component} from '@angular/core';
 
 import {Platform} from '@ionic/angular';

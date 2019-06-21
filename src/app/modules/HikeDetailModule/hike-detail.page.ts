@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Hike} from '../entities/hike';
+import {Hike} from '../../entities/hike';
 import {HikeDetailService} from './hike-detail.service';
 import { Map, tileLayer, marker, latLng } from 'leaflet';
-import {} from './../../../node_modules/leaflet-routing-machine/src/';
+import {} from '../../../../node_modules/leaflet-routing-machine/src/index';
 
 @Component({
   selector: 'app-hike-detail',
