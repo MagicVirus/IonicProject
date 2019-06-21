@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Hike} from '../entities/hike';
 import {HikeDetailService} from './hike-detail.service';
-import { Map, tileLayer, marker, latLng } from 'leaflet';
-import {} from './../../../node_modules/leaflet-routing-machine/src/';
+import * as L from 'leaflet';
+import 'leaflet-routing-machine';
 
 @Component({
   selector: 'app-hike-detail',
@@ -11,10 +11,9 @@ import {} from './../../../node_modules/leaflet-routing-machine/src/';
 })
 export class HikeDetailPage implements OnInit {
   hike: Hike;
-  map: Map;
+  map: any;
 
   constructor(private hikingDetailService: HikeDetailService) {
-      console.log(hikingDetailService.hike.name);
   }
 
     ionViewDidEnter() {
@@ -22,13 +21,12 @@ export class HikeDetailPage implements OnInit {
     }
 
     leafletMap() {
-        this.map = new Map('mapId').setView([1.087025, 25.777222], 13);
-
-        tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
+        this.map = L.map('mapId').setView([1.087025, 25.777222], 13);
+        L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png', {
         }).addTo(this.map);
 
-        const markPointStart = marker([3.087025, 45.777222]);
-        const markPointEnd = marker([-3.087025, -45.777222]);
+        const markPointStart = L.marker([3.087025, 45.777222]);
+        const markPointEnd = L.marker([-3.087025, -45.777222]);
         markPointStart.bindPopup(`<p> ${ this.hike.name } </p>`);
         markPointEnd.bindPopup(`<p> ${ this.hike.name } </p>`);
         this.map.addLayer(markPointStart);
