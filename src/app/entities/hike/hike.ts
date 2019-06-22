@@ -1,3 +1,5 @@
+import {Coordinate} from '../coordinate/coordinate';
+
 export class Hike {
     private _address: string;
     private _description;
@@ -8,8 +10,10 @@ export class Hike {
     private _image: string;
     private _name;
     private _nbPeople;
+    private _startCoordinates: Coordinate;
+    private _endCoordinates: Coordinate;
 
-    constructor(id, name, duration, nbPeople, image, hardness, address, description, elevation) {
+    constructor(id, name, duration, nbPeople, image, hardness, address, description, elevation, endCoordinates, startCoordinates) {
         this._address = address;
         this._description = description;
         this._duration = duration;
@@ -19,6 +23,8 @@ export class Hike {
         this._image = image;
         this._name = name;
         this._nbPeople = nbPeople;
+        this._startCoordinates = startCoordinates;
+        this._endCoordinates = endCoordinates;
     }
 
 
@@ -89,5 +95,21 @@ export class Hike {
 
     set elevation(value) {
         this._elevation = value;
+    }
+
+    get startCoordinates() {
+        return this._startCoordinates;
+    }
+
+    set startCoordinates(value) {
+        this._startCoordinates = value;
+    }
+
+    get endCoordinates() {
+        return this._endCoordinates;
+    }
+
+    set endCoordinates(value) {
+        this._endCoordinates = value;
     }
 }
