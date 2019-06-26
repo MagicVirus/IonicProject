@@ -9,6 +9,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
+import {HttpErrorHandler} from '../../services/HttpErrorHandlerService/http-error-handler.service';
+import {MessageService} from '../../services/MessageService/message.service';
 
 @NgModule({
     declarations: [AppComponent],
@@ -20,6 +22,8 @@ import { IonicStorageModule } from '@ionic/storage';
         IonicStorageModule.forRoot()
     ],
     providers: [
+        HttpErrorHandler,
+        MessageService,
         StatusBar,
         SplashScreen,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

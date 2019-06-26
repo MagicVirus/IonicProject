@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Hike} from '../../entities/hike/hike';
-import {HikeDetailService} from '../HikeDetailModule/hike-detail.service';
+import {Hike} from '../../entities/Hike/hike';
+import {HikeDetailService} from '../../services/HikeDetailService/hike-detail.service';
 import {Router} from '@angular/router';
-import {Coordinate} from '../../entities/coordinate/coordinate';
+import {Coordinate} from '../../entities/Coordinate/coordinate';
 
 @Component({
   selector: 'app-list',

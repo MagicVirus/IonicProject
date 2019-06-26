@@ -1,4 +1,4 @@
-import {Coordinate} from '../coordinate/coordinate';
+import {Coordinate} from '../Coordinate/coordinate';
 
 export class Hike {
     private _address: string;

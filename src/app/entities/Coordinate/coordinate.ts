@@ -2,7 +2,7 @@ export class Coordinate {
     private _latitude;
     private _longitude;
 
-    constructor(longitude, latitude) {
+    constructor(latitude, longitude) {
         this._latitude = latitude;
         this._longitude = longitude;
     }
