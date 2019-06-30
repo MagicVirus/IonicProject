@@ -7,7 +7,7 @@ const routes: Routes = [
     { path: 'list', loadChildren: '../ListModule/list.module#ListPageModule', canActivate: [AuthGuard]},
     { path: 'login', loadChildren: '../LoginModule/login.module#LoginPageModule' , canActivate: [AuthGuard]},
     { path: 'hike-detail', loadChildren: '../HikeDetailModule/hike-detail.module#HikeDetailPageModule', canActivate: [AuthGuard] },
-    { path: 'hike-running', loadChildren: '../HikeRunningModule/hike-running.module#HikeRunningPageModule' },
+    { path: 'hike-running', loadChildren: '../HikeRunningModule/hike-running.module#HikeRunningPageModule', canActivate: [AuthGuard]},
     { path: '**', redirectTo: 'login' }
 
 ];
