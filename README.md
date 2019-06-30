@@ -1,13 +1,16 @@
-accéder au GPS => cordova capacitor en JS
-sur Android il faut demander autorisation
+Comment installer votre application pour le développement :
 
-compteur => Interval qui rafraichit toutes les secondes avec observable ca va créer un flux qui envoie un value toutes les secondes
-compteur => Timer
+-  git clone https://github.com/MagicVirus/IonicProject.git
+- cd IonicProject 
+- npm install
+- ionic serve 
+Ce que vous avez réalisé (des phrases courtes)
 
-open street map
+- Une page login avec pour identifiants Bob/toto
+- Un message d'erreur si les identifiants sont erronés
+- Des sécurités ( Guards ) sur les routes si on n'est pas connecté 
 
-typedoc
-compodoc
-coverage
+- Une liste des Randonnées
 
-difficulté rencontré et solutions apportées
+Ce que vous n’avez pas réalisé et pourquoi
+Les éléments supplémentaires ajoutés au projet
