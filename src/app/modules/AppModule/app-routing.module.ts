@@ -7,6 +7,7 @@ const routes: Routes = [
     { path: 'list', loadChildren: '../ListModule/list.module#ListPageModule' },
     { path: 'login', loadChildren: '../LoginModule/login.module#LoginPageModule' },
     { path: 'hike-detail', loadChildren: '../HikeDetailModule/hike-detail.module#HikeDetailPageModule' },
+    { path: 'hike-running', loadChildren: '../HikeRunningModule/hike-running.module#HikeRunningPageModule' },
 ];
 
 @NgModule({

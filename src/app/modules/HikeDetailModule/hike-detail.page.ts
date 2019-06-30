@@ -6,6 +6,7 @@ import 'leaflet-routing-machine';
 import * as PolyUtils from './../../../../node_modules/polyline-encoded';
 import {MapAPIResult} from '../../entities/MapAPIResult/map-apiresult';
 import {MapApiService} from '../../services/MapAPIService/map-api.service';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class HikeDetailPage implements OnInit {
     result: MapAPIResult;
 
     constructor(private hikingDetailService: HikeDetailService,
+                private  router: Router,
                 private mapApiService: MapApiService) {
     }
 
@@ -29,16 +31,12 @@ export class HikeDetailPage implements OnInit {
         });
     }
 
-    ionViewDidEnter() {
-        this.leafletMap();
-    }
-
     leafletMap() {
         this.map = L.map('mapId').setView([this.hike.startCoordinates.latitude, this.hike.startCoordinates.longitude], 9);
         // L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {}).addTo(this.map);
         const coordinates = PolyUtils.decode(this.result.polyline, 6);
-        console.log(coordinates)
+        console.log(coordinates);
         L.polyline(coordinates).addTo(this.map);
 
         const markPointStart = L.marker([this.hike.startCoordinates.latitude, this.hike.startCoordinates.longitude]);
@@ -51,8 +49,16 @@ export class HikeDetailPage implements OnInit {
 
     ngOnInit() {
         this.hike = this.hikingDetailService.hike;
+        if (this.hike === undefined) {
+            this.router.navigate(['list']);
+        }
         this.getRoute();
+        this.leafletMap();
+    }
 
+    running(hike: Hike) {
+        this.hikingDetailService.hike = hike;
+        this.router.navigate(['hike-running']);
     }
 
 }
