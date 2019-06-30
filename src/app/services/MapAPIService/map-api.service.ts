@@ -19,6 +19,12 @@ export class MapApiService {
     mapAPIUrl = 'https://maps.open-street.com/api/route/';
     private handleError: HandleError;
 
+    /**
+     * Service appelant l'api des itinéraires
+     *
+     * @param {HttpClient} httpClient
+     * @param {HttpErrorHandler} httpErrorHandler
+     */
     constructor(
         private httpClient: HttpClient,
         httpErrorHandler: HttpErrorHandler) {

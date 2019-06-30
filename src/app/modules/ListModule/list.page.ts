@@ -21,7 +21,7 @@ export class ListPage implements OnInit {
   ];
 
   /**
-   * Module de la page de la liste des randonnées
+   * Module de la page de la liste des randonnées et permet de renvoyer sur le détail
    * @param {HikeDetailService} hikingDetailService
    * @param {Router} router
    */
