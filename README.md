@@ -15,8 +15,6 @@ Ce que vous avez réalisé (des phrases courtes)
 - Une page détail accessible en cliquant sur la div de la randonées 
 - Un Compteur pour la randonnée en cours
 
-- Affichage de la hike en cour sur la page de la liste
-
 Ce que vous n’avez pas réalisé et pourquoi :
 
 - Les test fonctionnels :
@@ -29,6 +27,9 @@ la commande ng test renvoie des erreurs que je n'arrive pas à résoudre malgré
 Error: StaticInjectorError(DynamicTestModule)[Storage]: 
   StaticInjectorError(Platform: core)[Storage]: 
     NullInjectorError: No provider for Storage!
+    
+ - Affichage de la hike en cour sur la page de la liste : 
+    Difficultés pour récupérer le chronomètre depuis notre service après plusieurs heures de tentatives.
     
   J'ai essaye d'injecter Storage/IonicStorageModule dans les composants sans succés.
     
