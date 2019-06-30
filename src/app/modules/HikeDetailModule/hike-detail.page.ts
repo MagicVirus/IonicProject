@@ -38,7 +38,7 @@ export class HikeDetailPage implements OnInit {
         // L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {}).addTo(this.map);
         const coordinates = PolyUtils.decode(this.result.polyline);
-        console.log(thgitis.result)
+        console.log(this.result)
         L.polyline(coordinates).addTo(this.map);
         // L.Routing.control({
         //     waypoints: [

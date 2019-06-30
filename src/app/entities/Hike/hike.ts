@@ -112,4 +112,5 @@ export class Hike {
     set endCoordinates(value) {
         this._endCoordinates = value;
     }
+
 }
