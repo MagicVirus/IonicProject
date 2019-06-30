@@ -6,6 +6,7 @@ import 'leaflet-routing-machine';
 import * as PolyUtils from './../../../../node_modules/polyline-encoded';
 import {MapAPIResult} from '../../entities/MapAPIResult/map-apiresult';
 import {MapApiService} from '../../services/MapAPIService/map-api.service';
+import {Router} from '@angular/router';
 
 
 @Component({

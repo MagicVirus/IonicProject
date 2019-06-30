@@ -1,4 +1,6 @@
 import {Coordinate} from '../Coordinate/coordinate';
+import {ChronoConfig} from "../ChronoConfig/chrono-config";
+import {StateEnum} from "./StateEnum";
 
 export class Hike {
     private _address: string;
@@ -12,6 +14,8 @@ export class Hike {
     private _nbPeople;
     private _startCoordinates: Coordinate;
     private _endCoordinates: Coordinate;
+    private _chronoconfig: ChronoConfig;
+    private _state;
 
     constructor(id, name, duration, nbPeople, image, hardness, address, description, elevation, endCoordinates, startCoordinates) {
         this._address = address;
@@ -25,6 +29,7 @@ export class Hike {
         this._nbPeople = nbPeople;
         this._startCoordinates = startCoordinates;
         this._endCoordinates = endCoordinates;
+        this._state = StateEnum.notstarted;
     }
 
 

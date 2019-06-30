@@ -9,6 +9,7 @@ export class ChronoConfig {
     constructor() {
         this._targetTime = new Date('2012-11-05 00:00:00');
         this._displayElement = new DisplayElement();
+
     }
 
     get targetTime() {
