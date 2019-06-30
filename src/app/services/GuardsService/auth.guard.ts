@@ -9,6 +9,11 @@ import {Router} from '@angular/router';
 })
 export class AuthGuard implements CanActivate {
 
+    /**
+     * Service permettant de bloquer ou non l'acces a des routes en fonction de l'etat de la connexion
+     * @param {AuthenticationService} auth
+     * @param {Router} router
+     */
     constructor(public auth: AuthenticationService, private  router: Router) {}
 
     canActivate(): boolean {

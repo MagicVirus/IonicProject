@@ -12,6 +12,10 @@ export type HandleError =
 /** Handles HttpClient errors */
 @Injectable()
 export class HttpErrorHandler {
+    /**
+     * Service gerant les erreurs en provenance de l'api permettant de récupérer l'itinéraire de la randonnée.
+     * @param {MessageService} messageService
+     */
     constructor(private messageService: MessageService) { }
 
     /** Create curried handleError function that already knows the service name */

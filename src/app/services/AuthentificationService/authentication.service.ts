@@ -12,6 +12,11 @@ export class AuthenticationService {
 
     authenticationState = new BehaviorSubject(false);
 
+    /**
+     * Service permettant de gérer l'etat de la connexion a travers l'application
+     * @param {Storage} storage
+     * @param {Platform} plt
+     */
     constructor(private storage: Storage, private plt: Platform) {
         this.plt.ready().then(() => {
             this.checkToken();

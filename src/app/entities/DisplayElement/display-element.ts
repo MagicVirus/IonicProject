@@ -5,7 +5,9 @@ export class DisplayElement {
     private _min;
     private _sec;
 
-
+    /**
+     * Classe représentant le temps a afficher dans l'appli
+     */
     constructor() {
         this._hour = null;
         this._min = null;

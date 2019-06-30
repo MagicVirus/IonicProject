@@ -7,7 +7,14 @@ export class MapAPIResult {
     private _status: string;
     private _stats: Stats;
 
-
+    /**
+     * Représente le JSON de l'itinéraire
+     * @param {string} polyline
+     * @param {number} totalDistance
+     * @param {number} totalTime
+     * @param {string} status
+     * @param {Stats} stats
+     */
     constructor(polyline: string, totalDistance: number, totalTime: number, status: string, stats: Stats) {
         this._polyline = polyline;
         this._totalDistance = totalDistance;

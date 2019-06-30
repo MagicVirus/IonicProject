@@ -5,7 +5,10 @@ export class ChronoConfig {
     private _targetTime: Date; // Date cible du compte à rebours (00:00:00)
     private _displayElement: DisplayElement;
 
-
+    /**
+     * Classe permettant de gérer le temps de la randonnée
+     * @param {Date} date
+     */
     constructor(date: Date) {
         this._targetTime = new Date();
         this._targetTime.setHours(this._targetTime.getHours() + date.getHours());

@@ -12,6 +12,11 @@ export class LoginPage implements OnInit {
     loginModel = '';
     passwordModel: string = '';
 
+    /**
+     * Module permettant de gérer la page le login en appelant le service d'authentification
+     * @param {AuthenticationService} authService
+     * @param {Router} router
+     */
     constructor(private authService: AuthenticationService, private  router: Router) {
     }
 
