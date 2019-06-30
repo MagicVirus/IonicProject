@@ -39,8 +39,8 @@ export class AppComponent {
 
             this.authenticationService.authenticationState.subscribe(state => {
                 if (state) {
-                    this.router.navigate(['list']);
                 } else {
+                    this.router.navigate(['login']);
                 }
             }
             );
