@@ -6,8 +6,11 @@ export class ChronoConfig {
     private _displayElement: DisplayElement;
 
 
-    constructor() {
-        this._targetTime = new Date('2012-11-05 00:00:00');
+    constructor(date: Date) {
+        this._targetTime = new Date();
+        this._targetTime.setHours(this._targetTime.getHours() + date.getHours());
+        this._targetTime.setMinutes(this._targetTime.getMinutes() + date.getMinutes());
+        this._targetTime.setSeconds(this._targetTime.getSeconds() + date.getSeconds());
         this._displayElement = new DisplayElement();
     }
 

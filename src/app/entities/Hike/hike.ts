@@ -1,9 +1,10 @@
 import {Coordinate} from '../Coordinate/coordinate';
+import {Time} from '@angular/common';
 
 export class Hike {
     private _address: string;
     private _description;
-    private _duration;
+    private _duration: Date;
     private _elevation;
     private _hardness;
     private _id;

@@ -9,6 +9,7 @@ import {MapApiService} from '../../services/MapAPIService/map-api.service';
 import {Router} from '@angular/router';
 import {ChronoConfig} from '../../entities/ChronoConfig/chrono-config';
 import {DateDiff} from '../../entities/DateDiff/date-diff';
+import {interval, Subscription} from 'rxjs';
 
 @Component({
     selector: 'app-hike-running',
@@ -16,7 +17,6 @@ import {DateDiff} from '../../entities/DateDiff/date-diff';
     styleUrls: ['./hike-running.page.scss'],
 })
 export class HikeRunningPage implements OnInit {
-    @ViewChild('countdown_day') dayRef: ElementRef;
     @ViewChild('countdown_hour') hourRef: ElementRef;
     @ViewChild('countdown_min') minRef: ElementRef;
     @ViewChild('countdown_sec') secRef: ElementRef;
@@ -24,55 +24,37 @@ export class HikeRunningPage implements OnInit {
     constructor(private hikingDetailService: HikeDetailService,
                 private  router: Router,
                 private mapApiService: MapApiService) {
-        this.chronoConfig = new ChronoConfig();
-        this.dateDiff = new DateDiff();
     }
 
     private hike: Hike;
+    private sub: Subscription;
     private map: L.Map;
     private chronoConfig: ChronoConfig;
     private dateDiff: DateDiff;
     result: MapAPIResult;
 
-    // Initialisation du compte à rebours (à appeler 1 fois au chargement de la page)
-    initChrono() {
-        // Récupération des références vers les éléments pour l'affichage
-        // La référence n'est récupérée qu'une seule fois à l'initialisation pour optimiser les performances
-        console.log(this.dayRef);
-        console.log(this.hourRef);
-        console.log(this.minRef);
-        console.log(this.secRef);
-        this.chronoConfig.displayElement.day  = this.dayRef;
+
+    configChrono() {
+        console.log(this.hike)
+        this.chronoConfig = new ChronoConfig(this.hike.duration);
+        this.dateDiff = new DateDiff();
         this.chronoConfig.displayElement.hour = this.hourRef;
         this.chronoConfig.displayElement.min  = this.minRef;
         this.chronoConfig.displayElement.sec  = this.secRef;
-
-        // Lancement du compte à rebours
-        this.tick(); // Premier tick tout de suite
-        window.setInterval('tick();', 1000); // Ticks suivant, répété toutes les secondes (1000 ms)
+        this.tick();
     }
 
-    // Met à jour le compte à rebours (tic d'horloge)
     tick() {
-        // Instant présent
         let timeNow  = new Date();
 
-        // On s'assure que le temps restant ne soit jamais négatif (ce qui est le cas dans le futur de targetTime)
         if ( timeNow > this.chronoConfig.targetTime ) {
             timeNow = this.chronoConfig.targetTime;
         }
 
-        // Calcul du temps restant
         const diff = this.dateDiff.dateDiff(timeNow, this.chronoConfig.targetTime);
-
-        console.log(diff.day)
-        console.log(diff.hour)
-        console.log(diff.min)
-        console.log(diff.sec)
-        this.chronoConfig.displayElement.day.oninput(  diff.day  );
-        this.chronoConfig.displayElement.hour.oninput( diff.hour );
-        this.chronoConfig.displayElement.min.oninput(  diff.min  );
-        this.chronoConfig.displayElement.sec.oninput(  diff.sec  );
+        this.chronoConfig.displayElement.hour = diff.hour;
+        this.chronoConfig.displayElement.min = diff.min;;
+        this.chronoConfig.displayElement.sec = diff.sec;
     }
 
     getRoute(): void {
@@ -91,7 +73,6 @@ export class HikeRunningPage implements OnInit {
         // L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {}).addTo(this.map);
         const coordinates = PolyUtils.decode(this.result.polyline, 6);
-        console.log(coordinates);
         L.polyline(coordinates).addTo(this.map);
 
         const markPointStart = L.marker([this.hike.startCoordinates.latitude, this.hike.startCoordinates.longitude]);
@@ -107,13 +88,15 @@ export class HikeRunningPage implements OnInit {
         if (this.hike === undefined) {
             this.router.navigate(['list']);
         }
+        this.configChrono();
+        this.sub = interval(1000)
+            .subscribe((val) => { this.tick(); });
         this.getRoute();
-        this.initChrono();
 
     }
 
-    running(hike: Hike) {
-        this.hikingDetailService.hike = hike;
-        this.router.navigate(['hike-running']);
+    finished() {
+        this.sub.unsubscribe();
+        this.router.navigate(['list']);
     }
 }
