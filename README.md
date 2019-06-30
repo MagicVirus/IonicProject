@@ -15,14 +15,15 @@ Ce que vous avez réalisé (des phrases courtes)
 - Une page détail accessible en cliquant sur la div de la randonées 
 - Un Compteur pour la randonnée en cours
 
+- Affichage de la hike en cour sur la page de la liste
 
 Ce que vous n’avez pas réalisé et pourquoi :
 
-Les test fonctionnels :
+- Les test fonctionnels :
 
 Aprés avoir lancé les commandes nécessaire pour lancer les tests fonctionnels , la fenetre Chrome pour le test charge indéfiniment et protractor lance une erreur au timeout qui est de 30 secondes.
 
-Les tests unitaires:
+ - Les tests unitaires:
 
 la commande ng test renvoie des erreurs que je n'arrive pas à résoudre malgré avoir recherché sur internet.
 Error: StaticInjectorError(DynamicTestModule)[Storage]: 
