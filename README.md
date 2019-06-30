@@ -24,5 +24,11 @@ Aprés avoir lancé les commandes nécessaire pour lancer les tests fonctionnels
 
 Les tests unitaires:
 
-
-Les éléments supplémentaires ajoutés au projet
+la commande ng test renvoie des erreurs que je n'arrive pas à résoudre malgré avoir recherché sur internet.
+Error: StaticInjectorError(DynamicTestModule)[Storage]: 
+  StaticInjectorError(Platform: core)[Storage]: 
+    NullInjectorError: No provider for Storage!
+    
+  J'ai essaye d'injecter Storage/IonicStorageModule dans les composants sans succés.
+    
+ Les éléments supplémentaires ajoutés au projet
