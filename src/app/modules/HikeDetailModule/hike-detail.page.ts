@@ -19,6 +19,7 @@ export class HikeDetailPage implements OnInit {
     result: MapAPIResult;
 
     constructor(private hikingDetailService: HikeDetailService,
+                private  router: Router,
                 private mapApiService: MapApiService) {
     }
 
@@ -29,36 +30,34 @@ export class HikeDetailPage implements OnInit {
         });
     }
 
-    ionViewDidEnter() {
-        this.leafletMap();
-    }
-
     leafletMap() {
         this.map = L.map('mapId').setView([this.hike.startCoordinates.latitude, this.hike.startCoordinates.longitude], 9);
         // L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {}).addTo(this.map);
-        const coordinates = PolyUtils.decode(this.result.polyline);
-        console.log(this.result)
+        const coordinates = PolyUtils.decode(this.result.polyline, 6);
+        console.log(coordinates);
         L.polyline(coordinates).addTo(this.map);
-        // L.Routing.control({
-        //     waypoints: [
-        //         L.latLng(this.Hike.startCoordinates.latitude, this.Hike.startCoordinates.longitude),
-        //         L.latLng(this.Hike.endCoordinates.latitude, this.Hike.endCoordinates.latitude)
-        //     ], routeWhileDragging: true
-        // }).addTo(this.map);
 
-        // const markPointStart = L.marker([48.898123, 2.345040]);
-        // const markPointEnd = L.marker([48.734705, 2.394971]);
-        // markPointStart.bindPopup(`<p> ${ this.Hike.name } </p>`);
-        // markPointEnd.bindPopup(`<p> ${ this.Hike.name } </p>`);
-        // this.map.addLayer(markPointStart);
-        // this.map.addLayer(markPointEnd);
+        const markPointStart = L.marker([this.hike.startCoordinates.latitude, this.hike.startCoordinates.longitude]);
+        const markPointEnd = L.marker([this.hike.endCoordinates.latitude, this.hike.endCoordinates.longitude]);
+        markPointStart.bindPopup(`<p>Départ : ${ this.hike.name } </p>`);
+        markPointEnd.bindPopup(`<p>Arrivée :  ${ this.hike.name } </p>`);
+        this.map.addLayer(markPointStart);
+        this.map.addLayer(markPointEnd);
     }
 
     ngOnInit() {
         this.hike = this.hikingDetailService.hike;
+        if (this.hike === undefined) {
+            this.router.navigate(['list']);
+        }
         this.getRoute();
+        this.leafletMap();
+    }
 
+    running(hike: Hike) {
+        this.hikingDetailService.hike = hike;
+        this.router.navigate(['hike-running']);
     }
 
 }
