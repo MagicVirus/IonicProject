@@ -21,8 +21,7 @@ export class ListPage implements OnInit {
   ];
 
   constructor(
-      private hikingDetailService: HikeDetailService, private  router: Router
-              ) {
+      private hikingDetailService: HikeDetailService, private  router: Router) {
 
   }
 

@@ -11,7 +11,6 @@ import { AppRoutingModule } from '../AppModule/app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
-    declarations: [AppComponent],
     entryComponents: [],
     imports: [
         BrowserModule,

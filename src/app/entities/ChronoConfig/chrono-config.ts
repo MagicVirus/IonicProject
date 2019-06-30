@@ -12,6 +12,7 @@ export class ChronoConfig {
         this._targetTime.setMinutes(this._targetTime.getMinutes() + date.getMinutes());
         this._targetTime.setSeconds(this._targetTime.getSeconds() + date.getSeconds());
         this._displayElement = new DisplayElement();
+
     }
 
     get targetTime() {

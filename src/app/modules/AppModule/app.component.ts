@@ -1,6 +1,7 @@
 import {Router} from '@angular/router';
 import {AuthenticationService} from '../../services/AuthentificationService/authentication.service';
 import {Component} from '@angular/core';
+import { Storage } from '@ionic/storage';
 
 import {Platform} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';

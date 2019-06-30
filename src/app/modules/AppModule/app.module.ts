@@ -26,7 +26,7 @@ import {MessageService} from '../../services/MessageService/message.service';
         MessageService,
         StatusBar,
         SplashScreen,
-        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     ],
     bootstrap: [AppComponent]
 })

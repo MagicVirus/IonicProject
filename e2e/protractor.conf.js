@@ -4,15 +4,17 @@
 const { SpecReporter } = require('jasmine-spec-reporter');
 
 exports.config = {
+  // Adresse du serveur Appium par défaut
+  seleniumAddress: 'http://localhost:4723/wd/hub',
   allScriptsTimeout: 11000,
   specs: [
-    './src/**/*.e2e-spec.ts'
+    './src/*.e2e-spec.ts'
   ],
   capabilities: {
     'browserName': 'chrome'
   },
   directConnect: true,
-  baseUrl: 'http://localhost:4200/',
+  baseUrl: 'http://localhost:8100/app',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
