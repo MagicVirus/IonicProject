@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import {HttpErrorHandler} from '../../services/HttpErrorHandlerService/http-error-handler.service';
 import {MessageService} from '../../services/MessageService/message.service';
+import {HikeStateService} from '../../services/HikeStateService/hike-state.service';
 
 @NgModule({
     declarations: [AppComponent],
@@ -24,6 +25,7 @@ import {MessageService} from '../../services/MessageService/message.service';
     providers: [
         HttpErrorHandler,
         MessageService,
+        HikeStateService,
         StatusBar,
         SplashScreen,
         { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },

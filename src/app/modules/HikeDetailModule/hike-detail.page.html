@@ -1,4 +1,9 @@
 <ion-content>
+    <ion-header>
+        <button ion-button left class="loginnavbtn" (click)="goback()">
+            Go back
+        </button>
+    </ion-header>
     <ion-card>
         <ion-item justify-content-center>
             <ion-img class="dimensions-100pourcent" [src]="hike.image"></ion-img>
@@ -22,7 +27,7 @@
 
         <ion-item justify-content-center>
             <i class="fas fa-hourglass-end space-after-logo"></i>
-            <ion-label>{{ hike.duration}}</ion-label>
+            <ion-label>{{ hike.duration | date:'hh:mm:ss'}}</ion-label>
         </ion-item>
 
         <ion-item justify-content-center>
@@ -37,7 +42,6 @@
 
         <ion-row class="margin-before-button ion-justify-content-center">
             <ion-button fill="outline" color="dark" center (click)="running(hike)" >Start</ion-button>
-
         </ion-row>
 
         <ion-item justify-content-center>
@@ -49,7 +53,7 @@
         </ion-card-header>
 
         <ion-row class="margin-before-button ion-justify-content-center">
-            <ion-button fill="outline" color="dark" center>Start</ion-button>
+            <ion-button fill="outline" color="dark" center (click)="running(hike)">Start</ion-button>
         </ion-row>
 
     </ion-card>

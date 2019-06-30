@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HikeRunningPage } from './hike-running.page';
 import {MapApiService} from '../../services/MapAPIService/map-api.service';
 import {HttpClientModule} from '@angular/common/http';
+import {HikeStateService} from '../../services/HikeStateService/hike-state.service';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import {HttpClientModule} from '@angular/common/http';
     ])
   ],
   providers: [
-      MapApiService
+      MapApiService,
+      HikeStateService
   ],
   declarations: [HikeRunningPage]
 })

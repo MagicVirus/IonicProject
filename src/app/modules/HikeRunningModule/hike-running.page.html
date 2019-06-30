@@ -2,12 +2,18 @@
     <ion-header class="container">
         <ion-row>
             <ion-col size="6">
-                <ion-label>{{hike.name}}</ion-label>
+                <span>
+                    <button ion-button left class="loginnavbtn" (click)="goback()">
+                        Go back
+                    </button>
+                </span>
+                <span><ion-label>{{hike.name}}</ion-label></span>
+
             </ion-col>
-            <ion-col size="6" *ngIf="chronoConfig" text-end>
-                <span #countdown_hour>{{chronoConfig.displayElement.hour}}</span>:
-                <span #countdown_min>{{chronoConfig.displayElement.min}}</span>:
-                <span #countdown_sec>{{chronoConfig.displayElement.sec}}</span>
+            <ion-col size="6" text-end>
+                <span #countdown_hour>{{hikeStateService.chronoRunning.displayElement.hour}}</span>:
+                <span #countdown_min>{{hikeStateService.chronoRunning.displayElement.min}}</span>:
+                <span #countdown_sec>{{hikeStateService.chronoRunning.displayElement.sec}}</span>
             </ion-col>
         </ion-row>
     </ion-header>
@@ -34,7 +40,7 @@
 
         <ion-item justify-content-center>
             <i class="fas fa-hourglass-end space-after-logo"></i>
-            <ion-label>{{ hike.duration}}</ion-label>
+            <ion-label>{{ hike.duration | date:'hh:mm:ss'}}</ion-label>
         </ion-item>
 
         <ion-item justify-content-center>
@@ -48,7 +54,7 @@
         </ion-item>
 
         <ion-row class="margin-before-button ion-justify-content-center">
-            <ion-button fill="outline" color="dark" center (click)="running(hike)" >Start</ion-button>
+            <ion-button fill="outline" color="dark" center (click)="finished()">Finish</ion-button>
 
         </ion-row>
 
@@ -61,7 +67,7 @@
         </ion-card-header>
 
         <ion-row class="margin-before-button ion-justify-content-center">
-            <ion-button fill="outline" color="dark" center>Start</ion-button>
+            <ion-button fill="outline" color="dark" center (click)="finished()">Finish</ion-button>
         </ion-row>
 
     </ion-card>

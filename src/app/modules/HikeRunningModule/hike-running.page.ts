@@ -10,6 +10,8 @@ import {Router} from '@angular/router';
 import {ChronoConfig} from '../../entities/ChronoConfig/chrono-config';
 import {DateDiff} from '../../entities/DateDiff/date-diff';
 import {interval, Subscription} from 'rxjs';
+import {HikeStateService} from '../../services/HikeStateService/hike-state.service';
+import {StateEnum} from '../../entities/Hike/StateEnum';
 
 @Component({
     selector: 'app-hike-running',
@@ -23,38 +25,37 @@ export class HikeRunningPage implements OnInit {
 
     constructor(private hikingDetailService: HikeDetailService,
                 private  router: Router,
-                private mapApiService: MapApiService) {
+                private mapApiService: MapApiService,
+                private hikeStateService: HikeStateService) {
     }
 
     private hike: Hike;
     private sub: Subscription;
     private map: L.Map;
-    private chronoConfig: ChronoConfig;
     private dateDiff: DateDiff;
     result: MapAPIResult;
 
 
     configChrono() {
-        console.log(this.hike)
-        this.chronoConfig = new ChronoConfig(this.hike.duration);
+        this.hikeStateService.chronoRunning = new ChronoConfig(this.hike.duration);
         this.dateDiff = new DateDiff();
-        this.chronoConfig.displayElement.hour = this.hourRef;
-        this.chronoConfig.displayElement.min  = this.minRef;
-        this.chronoConfig.displayElement.sec  = this.secRef;
+        this.hikeStateService.chronoRunning.displayElement.hour = this.hourRef;
+        this.hikeStateService.chronoRunning.displayElement.min  = this.minRef;
+        this.hikeStateService.chronoRunning.displayElement.sec  = this.secRef;
         this.tick();
     }
 
     tick() {
         let timeNow  = new Date();
 
-        if ( timeNow > this.chronoConfig.targetTime ) {
-            timeNow = this.chronoConfig.targetTime;
+        if ( timeNow > this.hikeStateService.chronoRunning.targetTime ) {
+            timeNow = this.hikeStateService.chronoRunning.targetTime;
         }
 
-        const diff = this.dateDiff.dateDiff(timeNow, this.chronoConfig.targetTime);
-        this.chronoConfig.displayElement.hour = diff.hour;
-        this.chronoConfig.displayElement.min = diff.min;;
-        this.chronoConfig.displayElement.sec = diff.sec;
+        const diff = this.dateDiff.dateDiff(timeNow, this.hikeStateService.chronoRunning.targetTime);
+        this.hikeStateService.chronoRunning.displayElement.hour = diff.hour;
+        this.hikeStateService.chronoRunning.displayElement.min = diff.min;
+        this.hikeStateService.chronoRunning.displayElement.sec = diff.sec;
     }
 
     getRoute(): void {
@@ -69,6 +70,9 @@ export class HikeRunningPage implements OnInit {
     }
 
     leafletMap() {
+        if (this.map !== undefined){
+            this.map.remove();
+        }
         this.map = L.map('mapId').setView([this.hike.startCoordinates.latitude, this.hike.startCoordinates.longitude], 9);
         // L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {}).addTo(this.map);
@@ -85,18 +89,25 @@ export class HikeRunningPage implements OnInit {
 
     ngOnInit() {
         this.hike = this.hikingDetailService.hike;
-        if (this.hike === undefined) {
-            this.router.navigate(['list']);
-        }
         this.configChrono();
+        this.hikeStateService.hikeState = StateEnum.running;
+        this.hikeStateService.hikeRunning = this.hike;
         this.sub = interval(1000)
-            .subscribe((val) => { this.tick(); });
+            .subscribe((val) => { this.tick();console.log(this.hikeStateService); });
         this.getRoute();
 
     }
 
     finished() {
         this.sub.unsubscribe();
+        this.hikeStateService.hikeState = StateEnum.finished;
+        this.hikeStateService.chronoRunning = undefined;
+        this.hikeStateService.hikeRunning = undefined;
         this.router.navigate(['list']);
+    }
+
+    goback() {
+        this.hikingDetailService.hike = this.hike;
+        this.router.navigate(['hike-detail']);
     }
 }

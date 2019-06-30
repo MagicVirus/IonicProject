@@ -26,17 +26,19 @@ export class HikeDetailPage implements OnInit {
 
     getRoute(): void {
         this.mapApiService.getRoute(this.hike)
-        .subscribe(data => {
-            this.result = data;
-        });
+            .subscribe(data => {
+                this.result = data;
+            });
     }
 
     leafletMap() {
+        if (this.map !== undefined) {
+            this.map.remove();
+        }
         this.map = L.map('mapId').setView([this.hike.startCoordinates.latitude, this.hike.startCoordinates.longitude], 9);
         // L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {}).addTo(this.map);
         const coordinates = PolyUtils.decode(this.result.polyline, 6);
-        console.log(coordinates);
         L.polyline(coordinates).addTo(this.map);
 
         const markPointStart = L.marker([this.hike.startCoordinates.latitude, this.hike.startCoordinates.longitude]);
@@ -53,7 +55,10 @@ export class HikeDetailPage implements OnInit {
             this.router.navigate(['list']);
         }
         this.getRoute();
-        this.leafletMap();
+        const currentThis = this;
+        setTimeout(function() {
+            currentThis.leafletMap();
+        }, 1000);
     }
 
     running(hike: Hike) {
@@ -61,4 +66,7 @@ export class HikeDetailPage implements OnInit {
         this.router.navigate(['hike-running']);
     }
 
+    goback() {
+        this.router.navigate(['list']);
+    }
 }

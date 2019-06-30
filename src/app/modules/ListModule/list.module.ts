@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { ListPage } from './list.page';
+import {HikeStateService} from '../../services/HikeStateService/hike-state.service';
 
 @NgModule({
   imports: [
@@ -18,6 +19,9 @@ import { ListPage } from './list.page';
       }
     ])
   ],
+    providers: [
+        HikeStateService
+    ],
   declarations: [ListPage]
 })
 export class ListPageModule {}

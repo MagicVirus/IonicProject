@@ -31,7 +31,7 @@
                             <span>
                                 <ion-row>
                                     <i class="fas fa-hourglass-end space-after-logo"></i>
-                                    <ion-label class="space-after-logo">{{ hike.duration}}</ion-label>
+                                    <ion-label class="space-after-logo">{{ hike.duration | date:'hh:mm:ss'}}</ion-label>
                                 </ion-row>
                             </span>
                             <span>
@@ -55,3 +55,9 @@
         </ion-item>
     </ion-list>
 </ion-content>
+<ion-footer *ngIf="_hikeState">
+    <ion-toolbar>
+        <ion-title>{{_hikeRunning.name}}</ion-title>
+        <ion-title>{{_hikeState}}</ion-title>
+    </ion-toolbar>
+</ion-footer>
