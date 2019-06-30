@@ -1,7 +1,10 @@
 export class Stats {
     private _time: number;
 
-
+    /**
+     *
+     * @param {number} time
+     */
     constructor(time: number) {
         this._time = time;
     }

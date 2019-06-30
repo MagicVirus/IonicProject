@@ -2,6 +2,11 @@ export class Coordinate {
     private _latitude;
     private _longitude;
 
+    /**
+     * Objet représantant une coordonnée
+     * @param latitude
+     * @param longitude
+     */
     constructor(latitude, longitude) {
         this._latitude = latitude;
         this._longitude = longitude;

@@ -18,6 +18,21 @@ export class Hike {
     private _chronoconfig: ChronoConfig;
     private _state;
 
+    /**
+     *  Classe représantant une randonné
+     *
+     * @param id
+     * @param name
+     * @param duration
+     * @param nbPeople
+     * @param image
+     * @param hardness
+     * @param address
+     * @param description
+     * @param elevation
+     * @param endCoordinates
+     * @param startCoordinates
+     */
     constructor(id, name, duration, nbPeople, image, hardness, address, description, elevation, endCoordinates, startCoordinates) {
         this._address = address;
         this._description = description;

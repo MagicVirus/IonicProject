@@ -16,15 +16,23 @@ import {interval, Subscription} from 'rxjs';
     templateUrl: './hike-running.page.html',
     styleUrls: ['./hike-running.page.scss'],
 })
+
 export class HikeRunningPage implements OnInit {
     @ViewChild('countdown_hour') hourRef: ElementRef;
     @ViewChild('countdown_min') minRef: ElementRef;
     @ViewChild('countdown_sec') secRef: ElementRef;
 
+    /**
+     * Page de randonnée en cours
+     * @param {HikeDetailService} hikingDetailService
+     * @param {Router} router
+     * @param {MapApiService} mapApiService
+     */
     constructor(private hikingDetailService: HikeDetailService,
                 private  router: Router,
                 private mapApiService: MapApiService) {
     }
+
 
     private hike: Hike;
     private sub: Subscription;
@@ -67,6 +75,7 @@ export class HikeRunningPage implements OnInit {
     ionViewDidEnter() {
         this.leafletMap();
     }
+
 
     leafletMap() {
         this.map = L.map('mapId').setView([this.hike.startCoordinates.latitude, this.hike.startCoordinates.longitude], 9);

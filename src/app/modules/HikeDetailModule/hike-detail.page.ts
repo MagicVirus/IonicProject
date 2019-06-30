@@ -19,6 +19,12 @@ export class HikeDetailPage implements OnInit {
     private map: L.Map;
     result: MapAPIResult;
 
+    /**
+     * Module initialisant la page de detail ainsi sur la map
+     * @param {HikeDetailService} hikingDetailService
+     * @param {Router} router
+     * @param {MapApiService} mapApiService
+     */
     constructor(private hikingDetailService: HikeDetailService,
                 private  router: Router,
                 private mapApiService: MapApiService) {

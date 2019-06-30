@@ -12,6 +12,16 @@ import {StatusBar} from '@ionic-native/status-bar/ngx';
     templateUrl: 'app.component.html'
 })
 export class AppComponent {
+
+    /**
+     * Module principale de l'application initalisant le state du login
+     *
+     * @param {Platform} platform
+     * @param {SplashScreen} splashScreen
+     * @param {StatusBar} statusBar
+     * @param {AuthenticationService} authenticationService
+     * @param {Router} router
+     */
     constructor(
         private platform: Platform,
         private splashScreen: SplashScreen,
@@ -27,13 +37,13 @@ export class AppComponent {
             this.statusBar.styleDefault();
             this.splashScreen.hide();
 
-            // this.authenticationService.authenticationState.subscribe(state => {
-            //     if (state) {
-            //         this.router.navigate(['members', 'dashboard']);
-            //     } else {
-            //     }
-            // }
-            // );
+            this.authenticationService.authenticationState.subscribe(state => {
+                if (state) {
+                    this.router.navigate(['list']);
+                } else {
+                }
+            }
+            );
 
         });
     }

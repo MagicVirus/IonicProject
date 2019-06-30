@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../../services/GuardsService/auth.guard';
 
+/**
+ * Definition des routes de l'application
+ * @type {({path: string; pathMatch: string; redirectTo: string} | {path: string; canActivate: AuthGuard[]; loadChildren: string} | {path: string; redirectTo: string})[]}
+ */
 const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'list', loadChildren: '../ListModule/list.module#ListPageModule', canActivate: [AuthGuard]},

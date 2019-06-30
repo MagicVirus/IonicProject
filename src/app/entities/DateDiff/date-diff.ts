@@ -3,6 +3,9 @@ export class DateDiff {
     private _min;
     private _sec;
 
+    /**
+     * Classe permettant de comparer deux date
+     */
     constructor() {
         this._hour = null;
         this._min = null;

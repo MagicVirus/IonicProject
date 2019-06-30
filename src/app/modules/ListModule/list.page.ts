@@ -20,6 +20,11 @@ export class ListPage implements OnInit {
     new Hike(6, 'Bois de Boulogne', '2019-02-17 17:18:19', 963, '../../assets/image1.jpg', 4, '2 avenue des landais', 'tout les uber eats vont ici', 852, new Coordinate(48.898123, 2.345040), new Coordinate(48.734705, 2.394971)),
   ];
 
+  /**
+   * Module de la page de la liste des randonnées
+   * @param {HikeDetailService} hikingDetailService
+   * @param {Router} router
+   */
   constructor(
       private hikingDetailService: HikeDetailService, private  router: Router) {
 
